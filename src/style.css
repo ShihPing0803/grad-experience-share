@@ -12,11 +12,11 @@
   --success-color: #7d8471;
   --warning-color: #c49a6c;
   --error-color: #b85450;
-  --background: #faf9f7;
+  --background: #fefdfb;
   --surface: #ffffff;
-  --surface-soft: #f7f5f3;
-  --border: #e8e3dc;
-  --border-soft: #f0ebe4;
+  --surface-soft: #faf8f5;
+  --border: #f0ebe4;
+  --border-soft: #f5f1ec;
   --text-primary: #3a3530;
   --text-secondary: #6b6358;
   --text-muted: #8a7f73;
@@ -34,14 +34,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #2a2520;
-    --surface: #342f28;
-    --surface-soft: #3d362d;
-    --border: #4a4136;
-    --border-soft: #3d362d;
-    --text-primary: #f0ebe4;
-    --text-secondary: #c7bfb0;
-    --text-muted: #a0956b;
+    --background: #fefdfb;
+    --surface: #ffffff;
+    --surface-soft: #faf8f5;
+    --border: #f0ebe4;
+    --border-soft: #f5f1ec;
+    --text-primary: #3a3530;
+    --text-secondary: #6b6358;
+    --text-muted: #8a7f73;
   }
 }
 
@@ -51,7 +51,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, var(--background) 0%, var(--surface-soft) 100%);
+  background: linear-gradient(135deg, #fefdfb 0%, #f9f7f4 50%, #faf8f5 100%);
   color: var(--text-primary);
   font-family: 'Crimson Text', Georgia, serif;
   transition: all 0.3s ease;
@@ -74,8 +74,9 @@ body {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(139, 115, 85, 0.03) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(139, 115, 85, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(250, 248, 245, 0.4) 0%, transparent 70%);
   pointer-events: none;
   z-index: -1;
 }
