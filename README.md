@@ -16,7 +16,7 @@
 
 ### 1. Clone Repo
 ```bash
-git clone [https://github.com/你的帳號/grad-experience-share.git](https://github.com/ShihPing0803/grad-experience-share.git)
+git clone https://github.com/ShihPing0803/grad-experience-share.git
 cd grad-experience-share
 ````
 
