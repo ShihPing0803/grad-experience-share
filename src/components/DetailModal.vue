@@ -9,15 +9,15 @@
             <div class="modal-body">
                 <div class="info-grid">
                     <div class="info-item">
-                        <div class="info-label">推甄年度</div>
+                        <div class="info-label">求學年份</div>
                         <div class="info-value">{{ post?.pYear || '-' }}</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-label">發布日期</div>
+                        <div class="info-label">分享時光</div>
                         <div class="info-value">{{ post?.pDate || '-' }}</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-label">成績排名</div>
+                        <div class="info-label">學業表現</div>
                         <div class="info-value">{{ post?.pScore || '-' }}</div>
                     </div>
                     <div class="info-item" v-if="post?.pGPA">
@@ -27,19 +27,19 @@
                 </div>
 
                 <div class="section">
-                    <h4 class="section-title">📚 背景與經歷</h4>
-                    <div class="section-content">{{ post?.pExp || '無相關資訊' }}</div>
+                    <h4 class="section-title">📖 求學歷程</h4>
+                    <div class="section-content">{{ post?.pExp || '這段旅程尚未記錄...' }}</div>
                 </div>
 
                 <div class="section">
-                    <h4 class="section-title">🎯 推甄結果</h4>
-                    <div class="section-content">{{ post?.pResult1 || '無相關資訊' }}</div>
+                    <h4 class="section-title">🌟 收穫與成果</h4>
+                    <div class="section-content">{{ post?.pResult1 || '成果仍在醞釀中...' }}</div>
                 </div>
 
                 <div class="section" v-if="post?.pURL">
-                    <h4 class="section-title">🔗 資料來源</h4>
+                    <h4 class="section-title">📜 故事出處</h4>
                     <a :href="post.pURL" target="_blank" class="source-link">
-                        📖 查看 Dcard 原文
+                        ✨ 閱讀完整故事
                     </a>
                 </div>
             </div>

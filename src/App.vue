@@ -29,12 +29,12 @@ const filteredPosts = computed(() => {
 <template>
   <Header />
   <main>
-    <h2>研究所推甄經驗分享</h2>
+    <h2>學子求學路上的點點滴滴</h2>
     <div class="search-container">
       <input 
         v-model="keyword" 
         type="search" 
-        placeholder="🔍 搜尋學校、系所或推甄結果..." 
+        placeholder="✨ 在知識的海洋中尋找共鳴..." 
         class="search-box" 
       />
     </div>
@@ -42,8 +42,8 @@ const filteredPosts = computed(() => {
       <PostTable :posts="filteredPosts" @select="openDetail"/>
     </div>
     <div v-else class="no-results">
-      <p>😔 查無相關結果</p>
-      <p style="font-size: 0.875rem; margin-top: 0.5rem;">請嘗試其他關鍵字或瀏覽所有經驗分享</p>
+      <p>暫無相關的求學足跡</p>
+      <p style="font-size: 0.95rem; margin-top: 0.5rem; font-style: italic;">或許換個關鍵詞，會有意想不到的發現</p>
     </div>
     <DetailModal :visible="showModal" :post="selectedPost" @close="showModal=false" />
   </main>
