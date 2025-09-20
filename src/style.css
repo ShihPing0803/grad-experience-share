@@ -631,7 +631,6 @@ main h2::after {
   border-color: var(--primary-color);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .header {
     padding: var(--spacing-md) var(--spacing-sm);
@@ -684,7 +683,6 @@ main h2::after {
   }
 }
 
-/* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -702,7 +700,6 @@ main h2::after {
   background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
 }
 
-/* Loading and transitions */
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.4s ease;
@@ -714,7 +711,6 @@ main h2::after {
   transform: translateY(20px);
 }
 
-/* Literary decorative elements */
 .section-content::after {
   content: '❦';
   display: block;

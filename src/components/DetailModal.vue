@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="section">
-                    <h4 class="section-title">🌟 收穫與成果</h4>
+                    <h4 class="section-title">🌟 結果</h4>
                     <div class="section-content">{{ post?.pResult1 || '成果仍在醞釀中...' }}</div>
                 </div>
 

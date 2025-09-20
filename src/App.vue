@@ -29,12 +29,12 @@ const filteredPosts = computed(() => {
 <template>
   <Header />
   <main>
-    <h2>學子求學路上的點點滴滴</h2>
+    <h2>研究所推甄經驗分享</h2>
     <div class="search-container">
       <input 
         v-model="keyword" 
         type="search" 
-        placeholder="✨ 在知識的海洋中尋找共鳴..." 
+        placeholder="✨ 尋找共鳴..." 
         class="search-box" 
       />
     </div>
