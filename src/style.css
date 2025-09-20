@@ -311,21 +311,6 @@ main h2::after {
   position: relative;
 }
 
-.post-table tbody tr::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  transition: width 0.3s ease;
-}
-
-.post-table tbody tr:hover::before {
-  width: 4px;
-}
-
 .post-table tbody tr:hover {
   background: linear-gradient(135deg, 
     rgba(139, 115, 85, 0.03) 0%, 
@@ -342,10 +327,9 @@ main h2::after {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 500;
-  padding: var(--spacing-xs) var(--spacing-sm);
+  
   border-radius: var(--radius);
   transition: all 0.3s ease;
-  font-style: italic;
   position: relative;
 }
 
