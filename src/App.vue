@@ -29,10 +29,22 @@ const filteredPosts = computed(() => {
 <template>
   <Header />
   <main>
-    <h2>經驗分享</h2>
-    <input v-model="keyword" type="search" placeholder="請輸入原學校、系所或欲推甄校系" class="search-box" />
-    <PostTable :posts="filteredPosts" v-if="filteredPosts.length > 0" @select="openDetail"/>
-    <p v-else>查無相關結果 QQ</p>
+    <h2>研究所推甄經驗分享</h2>
+    <div class="search-container">
+      <input 
+        v-model="keyword" 
+        type="search" 
+        placeholder="🔍 搜尋學校、系所或推甄結果..." 
+        class="search-box" 
+      />
+    </div>
+    <div v-if="filteredPosts.length > 0" class="table-container">
+      <PostTable :posts="filteredPosts" @select="openDetail"/>
+    </div>
+    <div v-else class="no-results">
+      <p>😔 查無相關結果</p>
+      <p style="font-size: 0.875rem; margin-top: 0.5rem;">請嘗試其他關鍵字或瀏覽所有經驗分享</p>
+    </div>
     <DetailModal :visible="showModal" :post="selectedPost" @close="showModal=false" />
   </main>
 </template>
