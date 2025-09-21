@@ -48,10 +48,6 @@ const paginatedPosts = computed(() => {
 })
 
 // Reset to first page when search changes
-function updateSearch(value) {
-  keyword.value = value
-  currentPage.value = 1
-}
 </script>
 
 <template>
