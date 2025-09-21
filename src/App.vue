@@ -29,7 +29,10 @@ const filteredPosts = computed(() => {
     return (
       p.pSchool?.includes(keyword.value) ||
       p.pDep?.includes(keyword.value) ||
-      p.pResult1?.includes(keyword.value)
+      p.pResult1?.includes(keyword.value) ||
+      p.pExp?.includes(keyword.value) ||
+      p.pYear?.includes(keyword.value) ||
+      p.pScore?.includes(keyword.value)
     );
   });
 });
@@ -45,13 +48,10 @@ const paginatedPosts = computed(() => {
 })
 
 // Reset to first page when search changes
-const searchKeyword = computed({
-  get: () => keyword.value,
-  set: (value) => {
-    keyword.value = value
-    currentPage.value = 1
-  }
-})
+function updateSearch(value) {
+  keyword.value = value
+  currentPage.value = 1
+}
 </script>
 
 <template>
@@ -60,7 +60,8 @@ const searchKeyword = computed({
     <h2>研究所推甄經驗分享</h2>
     <div class="search-container">
       <input 
-        v-model="searchKeyword" 
+        v-model="keyword" 
+        @input="currentPage = 1"
         type="search" 
         placeholder="✨ 尋找共鳴..." 
         class="search-box" 
