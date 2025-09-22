@@ -4,7 +4,7 @@ import posts from './data/data.js'
 import PostTable from './components/PostTable.vue'
 import DetailModal from './components/DetailModal.vue'
 import Pagination from './components/Pagination.vue'
-import ShareModal from './components/ShareModal.vue'
+import NewPostModal from './components/NewPostModal.vue'
 import { ref, computed } from 'vue'
 
 const keyword = ref('');
@@ -44,10 +44,7 @@ const filteredPosts = computed(() => {
     return (
       p.pSchool?.includes(keyword.value) ||
       p.pDep?.includes(keyword.value) ||
-      p.pResult1?.includes(keyword.value) ||
-      p.pExp?.includes(keyword.value) ||
-      p.pYear?.includes(keyword.value) ||
-      p.pScore?.includes(keyword.value)
+      p.pResult1?.includes(keyword.value) 
     );
   });
 });
@@ -104,7 +101,6 @@ const paginatedPosts = computed(() => {
     </div>
     
     <DetailModal :visible="showModal" :post="selectedPost" @close="showModal=false" />
-    <ShareModal :visible="showShareModal" @close="showShareModal=false" @submit="handleNewExperience" />
+    <NewPostModal :visible="showShareModal" @close="showShareModal=false" @submit="handleNewExperience" />
   </main>
 </template>
-

@@ -11,10 +11,11 @@
   </header>
 </template>
 
-<script setup>
-const emit = defineEmits(['share'])
 
-function handleShare() {
-  emit('share')
-}
+<script setup>
+  const emit = defineEmits(['share'])
+
+  function handleShare() {
+    emit('share')
+  }
 </script>
