@@ -4,17 +4,32 @@ import posts from './data/data.js'
 import PostTable from './components/PostTable.vue'
 import DetailModal from './components/DetailModal.vue'
 import Pagination from './components/Pagination.vue'
+import ShareModal from './components/ShareModal.vue'
 import { ref, computed } from 'vue'
 
 const keyword = ref('');
 const selectedPost = ref(null)
 const showModal = ref(false)
+const showShareModal = ref(false)
 const currentPage = ref(1)
 const itemsPerPage = 10
+const allPosts = ref([...posts])
 
 function openDetail(post) {
   selectedPost.value = post
   showModal.value = true
+}
+
+function openShareModal() {
+  showShareModal.value = true
+}
+
+function handleNewExperience(newExperience) {
+  allPosts.value.unshift(newExperience)
+  showShareModal.value = false
+  // Reset search and pagination to show the new entry
+  keyword.value = ''
+  currentPage.value = 1
 }
 
 function handlePageChange(page) {
@@ -24,8 +39,8 @@ function handlePageChange(page) {
 }
 
 const filteredPosts = computed(() => {
-  if (!keyword.value) return posts;
-  return posts.filter((p) => {
+  if (!keyword.value) return allPosts.value;
+  return allPosts.value.filter((p) => {
     return (
       p.pSchool?.includes(keyword.value) ||
       p.pDep?.includes(keyword.value) ||
@@ -51,7 +66,7 @@ const paginatedPosts = computed(() => {
 </script>
 
 <template>
-  <Header />
+  <Header @share="openShareModal" />
   <main>
     <h2>研究所推甄經驗分享</h2>
     <div class="search-container">
@@ -89,6 +104,7 @@ const paginatedPosts = computed(() => {
     </div>
     
     <DetailModal :visible="showModal" :post="selectedPost" @close="showModal=false" />
+    <ShareModal :visible="showShareModal" @close="showShareModal=false" @submit="handleNewExperience" />
   </main>
 </template>
 
