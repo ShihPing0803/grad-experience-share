@@ -7,57 +7,38 @@
       </div>
       
       <div class="modal-body">
-        <form @submit.prevent="submitExperience" class="share-form">
+        <Form :validation-schema="postSchema" @submit="submitExperience" class="share-form">
           <div class="form-section">
             <h4 class="section-title">📚 基本資訊</h4>
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label">學校</label>
-                <input 
-                  v-model="formData.pSchool" 
-                  type="text" 
-                  class="form-input" 
-                  placeholder="例：台灣大學"
-                  required
-                />
+                <Field name="pSchool" type="text" class="form-input" placeholder="例：台灣大學" />
+                <ErrorMessage name="pSchool" class="error" />
               </div>
+
               <div class="form-group">
                 <label class="form-label">系所</label>
-                <input 
-                  v-model="formData.pDep" 
-                  type="text" 
-                  class="form-input" 
-                  placeholder="例：資訊管理學系"
-                  required
-                />
+                <Field name="pDep" type="text" class="form-input" placeholder="例：資訊管理學系" />
+                <ErrorMessage name="pDep" class="error" />
               </div>
+
               <div class="form-group">
                 <label class="form-label">推甄年度</label>
-                <input 
-                  v-model="formData.pYear" 
-                  type="text" 
-                  class="form-input" 
-                  placeholder="例：114"
-                  required
-                />
+                <Field name="pYear" type="text" class="form-input" placeholder="例：114" />
+                <ErrorMessage name="pYear" class="error" />
               </div>
+
               <div class="form-group">
                 <label class="form-label">成績排名</label>
-                <input 
-                  v-model="formData.pScore" 
-                  type="text" 
-                  class="form-input" 
-                  placeholder="例：5% 或 系排第3"
-                />
+                <Field name="pScore" type="text" class="form-input" placeholder="例：5% 或 系排第3" />
+                <ErrorMessage name="pScore" class="error" />
               </div>
+
               <div class="form-group">
                 <label class="form-label">GPA (選填)</label>
-                <input 
-                  v-model="formData.pGPA" 
-                  type="text" 
-                  class="form-input" 
-                  placeholder="例：4.0/4.0"
-                />
+                <Field name="pGPA" type="text" class="form-input" placeholder="例：4.0/4.0" />
+                <ErrorMessage name="pGPA" class="error" />
               </div>
             </div>
           </div>
@@ -66,13 +47,9 @@
             <h4 class="section-title">🌟 經歷與背景</h4>
             <div class="form-group">
               <label class="form-label">詳細經歷</label>
-              <textarea 
-                v-model="formData.pExp" 
-                class="form-textarea" 
-                rows="6"
-                placeholder="請分享你的經歷，例如：&#10;- 專題研究&#10;- 實習經驗&#10;- 競賽得獎&#10;- 證照考取&#10;- 社團活動&#10;- 其他特殊經歷"
-                required
-              ></textarea>
+              <Field name="pExp" as="textarea" rows="6" class="form-textarea"
+                placeholder="請分享你的經歷，例如：&#10;- 專題研究&#10;- 實習經驗&#10;- 競賽得獎&#10;- 證照考取&#10;- 社團活動&#10;- 其他特殊經歷" />
+              <ErrorMessage name="pExp" class="error" />
             </div>
           </div>
 
@@ -80,13 +57,9 @@
             <h4 class="section-title">🎯 推甄結果</h4>
             <div class="form-group">
               <label class="form-label">申請結果</label>
-              <textarea 
-                v-model="formData.pResult1" 
-                class="form-textarea" 
-                rows="6"
-                placeholder="請分享你的申請結果，例如：&#10;台大資管 一階落榜&#10;政大資管 正取&#10;成大資管 備取5&#10;中央資管 正取"
-                required
-              ></textarea>
+              <Field name="pResult1" as="textarea" rows="6" class="form-textarea"
+                placeholder="請分享你的申請結果，例如：&#10;台大資管 一階落榜&#10;政大資管 正取&#10;成大資管 備取5&#10;中央資管 正取" />
+              <ErrorMessage name="pResult1" class="error" />
             </div>
           </div>
 
@@ -94,12 +67,9 @@
             <h4 class="section-title">🔗 來源連結 (選填)</h4>
             <div class="form-group">
               <label class="form-label">原文連結</label>
-              <input 
-                v-model="formData.pURL" 
-                type="url" 
-                class="form-input" 
-                placeholder="例：https://www.dcard.tw/f/graduate_school/p/..."
-              />
+              <Field name="pURL" type="url" class="form-input"
+                placeholder="例：https://www.dcard.tw/f/graduate_school/p/..." />
+              <ErrorMessage name="pURL" class="error" />
             </div>
           </div>
 
@@ -111,7 +81,7 @@
               {{ isSubmitting ? '分享中...' : '✨ 分享經驗' }}
             </button>
           </div>
-        </form>
+        </Form>
       </div>
     </div>
   </div>
@@ -119,6 +89,8 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import postSchema from '../validation/postSchema'
+import { Form, Field, ErrorMessage } from 'vee-validate'
 
 const props = defineProps({
   visible: { type: Boolean, default: false }

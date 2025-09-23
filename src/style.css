@@ -988,6 +988,13 @@ main h2::after {
   transform: none;
 }
 
+.error {
+  color: #e63946;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;
+}
+
 @media (max-width: 768px) {
   .share-modal {
     margin: var(--spacing-sm);
